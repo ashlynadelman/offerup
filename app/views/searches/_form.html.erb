@@ -42,7 +42,7 @@
 
     <%= f.label :price_id %>
     <!-- Input for price_id start -->
-    <%= f.number_field :price_id, class: price_class, placeholder: "Enter price" %>
+    <%= f.collection_select :price_id, Price.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for price_id end -->
     <% if price_was_invalid %>
       <% search.errors.full_messages_for(:price).each do |message| %>
