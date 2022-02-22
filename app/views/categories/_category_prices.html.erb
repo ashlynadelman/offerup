@@ -6,11 +6,9 @@
   <ul class="list-group list-group-flush">
     <% @category.prices.each do |price| %>
       <li class="list-group-item d-flex align-items-center justify-content-between">
-        <!-- Show link start -->
         <a href="/prices/<%= price.id %>">
           <%= price %>
         </a>
-        <!-- Show link end -->
 
       </li>
     <% end %>

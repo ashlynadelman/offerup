@@ -1,7 +1,6 @@
 <% was_validated = user.errors.any? %>
 
 <%= form_with(model: user, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for item_id start -->
   <div class="form-group">
     <% item_class = "form-control" %>
     <% item_was_invalid = user.errors.include?(:item) %>
@@ -15,9 +14,7 @@
     <% end %>
 
     <%= f.label :item_id %>
-    <!-- Input for item_id start -->
     <%= f.number_field :item_id, class: item_class, placeholder: "Enter item" %>
-    <!-- Input for item_id end -->
     <% if item_was_invalid %>
       <% user.errors.full_messages_for(:item).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -26,8 +23,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for item_id end -->
-  <!-- Label and input for member_since start -->
   <div class="form-group">
     <% member_since_class = "form-control" %>
     <% member_since_was_invalid = user.errors.include?(:member_since) %>
@@ -41,9 +36,7 @@
     <% end %>
 
     <%= f.label :member_since %>
-    <!-- Input for member_since start -->
     <%= f.date_select :member_since, class: member_since_class, placeholder: "Enter member since" %>
-    <!-- Input for member_since end -->
     <% if member_since_was_invalid %>
       <% user.errors.full_messages_for(:member_since).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -52,8 +45,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for member_since end -->
-  <!-- Label and input for username start -->
   <div class="form-group">
     <% username_class = "form-control" %>
     <% username_was_invalid = user.errors.include?(:username) %>
@@ -67,9 +58,7 @@
     <% end %>
 
     <%= f.label :username %>
-    <!-- Input for username start -->
     <%= f.text_field :username, class: username_class, placeholder: "Enter username" %>
-    <!-- Input for username end -->
     <% if username_was_invalid %>
       <% user.errors.full_messages_for(:username).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -78,6 +67,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for username end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>
