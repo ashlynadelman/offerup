@@ -2,21 +2,21 @@ class Category < ApplicationRecord
   # Direct associations
 
   has_many   :searches,
-             :dependent => :destroy
+             dependent: :destroy
 
   has_many   :item_titles,
-             :class_name => "Item",
-             :dependent => :destroy
+             class_name: "Item",
+             dependent: :destroy
 
   # Indirect associations
 
   has_many   :prices,
-             :through => :item_titles,
-             :source => :price
+             through: :item_titles,
+             source: :price
 
   has_many   :users,
-             :through => :item_titles,
-             :source => :user
+             through: :item_titles,
+             source: :user
 
   # Validations
 
@@ -25,5 +25,4 @@ class Category < ApplicationRecord
   def to_s
     item_id
   end
-
 end

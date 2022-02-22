@@ -2,18 +2,18 @@ class User < ApplicationRecord
   # Direct associations
 
   has_many   :item_titles,
-             :class_name => "Item",
-             :dependent => :destroy
+             class_name: "Item",
+             dependent: :destroy
 
   # Indirect associations
 
   has_many   :prices,
-             :through => :item_titles,
-             :source => :price
+             through: :item_titles,
+             source: :price
 
   has_many   :categories,
-             :through => :item_titles,
-             :source => :category
+             through: :item_titles,
+             source: :category
 
   # Validations
 
@@ -22,5 +22,4 @@ class User < ApplicationRecord
   def to_s
     item_id
   end
-
 end

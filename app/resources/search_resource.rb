@@ -15,5 +15,4 @@ class SearchResource < ApplicationResource
   belongs_to :item
 
   # Indirect associations
-
 end

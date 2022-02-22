@@ -13,7 +13,7 @@ class Api::V1::PricesController < Api::V1::GraphitiController
     price = PriceResource.build(params)
 
     if price.save
-      render jsonapi: price, status: 201
+      render jsonapi: price, status: :created
     else
       render jsonapi_errors: price
     end
@@ -33,7 +33,7 @@ class Api::V1::PricesController < Api::V1::GraphitiController
     price = PriceResource.find(params)
 
     if price.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: price
     end

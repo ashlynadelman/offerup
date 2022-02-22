@@ -1,10 +1,11 @@
 class PricesController < ApplicationController
-  before_action :set_price, only: [:show, :edit, :update, :destroy]
+  before_action :set_price, only: %i[show edit update destroy]
 
   # GET /prices
   def index
     @q = Price.ransack(params[:q])
-    @prices = @q.result(:distinct => true).includes(:item_titles, :searches, :users, :categories).page(params[:page]).per(10)
+    @prices = @q.result(distinct: true).includes(:item_titles, :searches,
+                                                 :users, :categories).page(params[:page]).per(10)
   end
 
   # GET /prices/1
@@ -19,15 +20,14 @@ class PricesController < ApplicationController
   end
 
   # GET /prices/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /prices
   def create
     @price = Price.new(price_params)
 
     if @price.save
-      redirect_to @price, notice: 'Price was successfully created.'
+      redirect_to @price, notice: "Price was successfully created."
     else
       render :new
     end
@@ -36,7 +36,7 @@ class PricesController < ApplicationController
   # PATCH/PUT /prices/1
   def update
     if @price.update(price_params)
-      redirect_to @price, notice: 'Price was successfully updated.'
+      redirect_to @price, notice: "Price was successfully updated."
     else
       render :edit
     end
@@ -45,17 +45,18 @@ class PricesController < ApplicationController
   # DELETE /prices/1
   def destroy
     @price.destroy
-    redirect_to prices_url, notice: 'Price was successfully destroyed.'
+    redirect_to prices_url, notice: "Price was successfully destroyed."
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_price
-      @price = Price.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def price_params
-      params.fetch(:price, {})
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_price
+    @price = Price.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def price_params
+    params.fetch(:price, {})
+  end
 end

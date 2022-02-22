@@ -2,13 +2,13 @@ class Search < ApplicationRecord
   # Direct associations
 
   belongs_to :category,
-             :required => false
+             optional: true
 
   belongs_to :price,
-             :required => false
+             optional: true
 
   belongs_to :item,
-             :required => false
+             optional: true
 
   # Indirect associations
 
@@ -19,5 +19,4 @@ class Search < ApplicationRecord
   def to_s
     item.to_s
   end
-
 end

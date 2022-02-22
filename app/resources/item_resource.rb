@@ -22,5 +22,4 @@ class ItemResource < ApplicationResource
   has_many   :searches
 
   # Indirect associations
-
 end

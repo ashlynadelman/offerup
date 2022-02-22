@@ -13,7 +13,7 @@ class Api::V1::SearchesController < Api::V1::GraphitiController
     search = SearchResource.build(params)
 
     if search.save
-      render jsonapi: search, status: 201
+      render jsonapi: search, status: :created
     else
       render jsonapi_errors: search
     end
@@ -33,7 +33,7 @@ class Api::V1::SearchesController < Api::V1::GraphitiController
     search = SearchResource.find(params)
 
     if search.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: search
     end

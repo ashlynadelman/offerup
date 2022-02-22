@@ -15,5 +15,4 @@ class PriceResource < ApplicationResource
   many_to_many :categories
 
   many_to_many :users
-
 end
