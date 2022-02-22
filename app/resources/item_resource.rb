@@ -13,6 +13,8 @@ class ItemResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :searches
+
   # Indirect associations
 
 end

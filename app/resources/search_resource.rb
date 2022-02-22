@@ -8,6 +8,8 @@ class SearchResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :item
+
   # Indirect associations
 
 end
