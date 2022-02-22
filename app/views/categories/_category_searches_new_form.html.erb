@@ -1,0 +1,32 @@
+<!-- Form search start -->
+<%= form_with(model: @search, local: true) do |f| %>
+<!-- Form search end -->
+
+  <!-- Label and input for item_id start -->
+  <div class="form-group">
+    <%= f.label :item_id %>
+
+    <!-- Input for item_id start -->
+    <%= f.text_field :item_id, class: "form-control" %>
+    <!-- Input for item_id end -->
+  </div>
+  <!-- Label and input for item_id end -->
+
+  <!-- Label and input for price_id start -->
+  <div class="form-group">
+    <%= f.label :price_id %>
+
+    <!-- Input for price_id start -->
+    <%= f.text_field :price_id, class: "form-control" %>
+    <!-- Input for price_id end -->
+  </div>
+  <!-- Label and input for price_id end -->
+
+  <!-- Label and input for category_id start -->
+  <!-- Input for category_id start -->
+  <%= f.hidden_field :category_id, value: @category.id %>
+  <!-- Input for category_id end -->
+  <!-- Label and input for category_id end -->
+
+  <%= f.submit "Create search", class: "btn btn-block btn-outline-secondary" %>
+<% end %>

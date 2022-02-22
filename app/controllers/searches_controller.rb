@@ -24,7 +24,12 @@ class SearchesController < ApplicationController
     @search = Search.new(search_params)
 
     if @search.save
-      redirect_to @search, notice: 'Search was successfully created.'
+      message = 'Search was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @search, notice: message
+      end
     else
       render :new
     end

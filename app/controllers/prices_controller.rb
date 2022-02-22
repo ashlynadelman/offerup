@@ -8,6 +8,8 @@ class PricesController < ApplicationController
 
   # GET /prices/1
   def show
+    @search = Search.new
+    @item = Item.new
   end
 
   # GET /prices/new
