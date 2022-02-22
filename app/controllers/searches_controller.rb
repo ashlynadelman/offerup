@@ -3,7 +3,7 @@ class SearchesController < ApplicationController
 
   # GET /searches
   def index
-    @searches = Search.all
+    @searches = Search.page(params[:page]).per(10)
   end
 
   # GET /searches/1

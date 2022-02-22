@@ -3,7 +3,7 @@ class PricesController < ApplicationController
 
   # GET /prices
   def index
-    @prices = Price.all
+    @prices = Price.page(params[:page]).per(10)
   end
 
   # GET /prices/1
