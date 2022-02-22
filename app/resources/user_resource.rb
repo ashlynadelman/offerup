@@ -8,6 +8,9 @@ class UserResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :item_titles,
+             resource: ItemResource
+
   # Indirect associations
 
 end
