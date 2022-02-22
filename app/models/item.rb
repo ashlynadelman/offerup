@@ -1,6 +1,9 @@
 class Item < ApplicationRecord
   # Direct associations
 
+  has_many   :searches,
+             :dependent => :destroy
+
   # Indirect associations
 
   # Validations
