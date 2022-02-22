@@ -12,6 +12,8 @@ class PriceResource < ApplicationResource
 
   # Indirect associations
 
+  many_to_many :categories
+
   many_to_many :users
 
 end

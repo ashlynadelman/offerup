@@ -13,6 +13,8 @@ class CategoryResource < ApplicationResource
 
   # Indirect associations
 
+  many_to_many :prices
+
   many_to_many :users
 
 end
