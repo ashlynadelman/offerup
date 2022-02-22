@@ -3,7 +3,8 @@ class PricesController < ApplicationController
 
   # GET /prices
   def index
-    @prices = Price.page(params[:page]).per(10)
+    @q = Price.ransack(params[:q])
+    @prices = @q.result(:distinct => true).includes(:item_titles, :searches, :users, :categories).page(params[:page]).per(10)
   end
 
   # GET /prices/1

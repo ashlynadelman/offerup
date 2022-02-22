@@ -3,7 +3,8 @@ class SearchesController < ApplicationController
 
   # GET /searches
   def index
-    @searches = Search.page(params[:page]).per(10)
+    @q = Search.ransack(params[:q])
+    @searches = @q.result(:distinct => true).includes(:item, :price, :category).page(params[:page]).per(10)
   end
 
   # GET /searches/1
