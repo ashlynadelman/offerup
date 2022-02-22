@@ -32,7 +32,9 @@
 
       <dt>Picture</dt>
       <!-- Display picture start -->
-      <dd><%= item.picture %></dd>
+      <dd>
+        <%= cl_image_tag @item.picture, class: "img-fluid" %>
+      </dd>
       <!-- Display picture end -->
 
       <dt>Posted date</dt>
