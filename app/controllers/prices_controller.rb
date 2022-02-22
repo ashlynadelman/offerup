@@ -1,28 +1,23 @@
 class PricesController < ApplicationController
   before_action :set_price, only: %i[show edit update destroy]
 
-  # GET /prices
   def index
     @q = Price.ransack(params[:q])
     @prices = @q.result(distinct: true).includes(:item_titles, :searches,
                                                  :users, :categories).page(params[:page]).per(10)
   end
 
-  # GET /prices/1
   def show
     @search = Search.new
     @item = Item.new
   end
 
-  # GET /prices/new
   def new
     @price = Price.new
   end
 
-  # GET /prices/1/edit
   def edit; end
 
-  # POST /prices
   def create
     @price = Price.new(price_params)
 
@@ -33,7 +28,6 @@ class PricesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /prices/1
   def update
     if @price.update(price_params)
       redirect_to @price, notice: "Price was successfully updated."
@@ -42,7 +36,6 @@ class PricesController < ApplicationController
     end
   end
 
-  # DELETE /prices/1
   def destroy
     @price.destroy
     redirect_to prices_url, notice: "Price was successfully destroyed."
@@ -50,12 +43,10 @@ class PricesController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_price
     @price = Price.find(params[:id])
   end
 
-  # Only allow a trusted parameter "white list" through.
   def price_params
     params.fetch(:price, {})
   end
