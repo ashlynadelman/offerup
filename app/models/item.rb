@@ -1,6 +1,8 @@
 class Item < ApplicationRecord
   # Direct associations
 
+  belongs_to :user
+
   belongs_to :category
 
   belongs_to :price
