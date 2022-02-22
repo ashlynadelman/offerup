@@ -1,6 +1,9 @@
 class Price < ApplicationRecord
   # Direct associations
 
+  has_many   :searches,
+             :dependent => :destroy
+
   has_many   :item_titles,
              :class_name => "Item",
              :dependent => :destroy
