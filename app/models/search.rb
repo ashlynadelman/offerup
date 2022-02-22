@@ -1,6 +1,9 @@
 class Search < ApplicationRecord
   # Direct associations
 
+  belongs_to :category,
+             :required => false
+
   belongs_to :price,
              :required => false
 

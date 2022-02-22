@@ -4,6 +4,8 @@ RSpec.describe Category, type: :model do
   
     describe "Direct Associations" do
 
+    it { should have_many(:searches) }
+
     it { should have_many(:item_titles) }
 
     end
