@@ -1,0 +1,83 @@
+<% was_validated = search.errors.any? %>
+
+<%= form_with(model: search, local: true, novalidate: true, class: "mb-3") do |f| %>
+  <!-- Label and input for item_id start -->
+  <div class="form-group">
+    <% item_class = "form-control" %>
+    <% item_was_invalid = search.errors.include?(:item) %>
+
+    <% if was_validated %>
+      <% if item_was_invalid %>
+        <% item_class << " is-invalid" %>
+      <% else %>
+        <% item_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :item_id %>
+    <!-- Input for item_id start -->
+    <%= f.number_field :item_id, class: item_class, placeholder: "Enter item" %>
+    <!-- Input for item_id end -->
+    <% if item_was_invalid %>
+      <% search.errors.full_messages_for(:item).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for item_id end -->
+  <!-- Label and input for price_id start -->
+  <div class="form-group">
+    <% price_class = "form-control" %>
+    <% price_was_invalid = search.errors.include?(:price) %>
+
+    <% if was_validated %>
+      <% if price_was_invalid %>
+        <% price_class << " is-invalid" %>
+      <% else %>
+        <% price_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :price_id %>
+    <!-- Input for price_id start -->
+    <%= f.number_field :price_id, class: price_class, placeholder: "Enter price" %>
+    <!-- Input for price_id end -->
+    <% if price_was_invalid %>
+      <% search.errors.full_messages_for(:price).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for price_id end -->
+  <!-- Label and input for category_id start -->
+  <div class="form-group">
+    <% category_class = "form-control" %>
+    <% category_was_invalid = search.errors.include?(:category) %>
+
+    <% if was_validated %>
+      <% if category_was_invalid %>
+        <% category_class << " is-invalid" %>
+      <% else %>
+        <% category_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :category_id %>
+    <!-- Input for category_id start -->
+    <%= f.number_field :category_id, class: category_class, placeholder: "Enter category" %>
+    <!-- Input for category_id end -->
+    <% if category_was_invalid %>
+      <% search.errors.full_messages_for(:category).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for category_id end -->
+  <%= f.button class: "btn btn-outline-secondary btn-block" %>
+<% end %>
