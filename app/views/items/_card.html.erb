@@ -7,12 +7,20 @@
     <dl class="mb-1">
       <dt>Category</dt>
       <!-- Display category_id start -->
-      <dd><%= item.category_id %></dd>
+      <dd>
+        <% if @item.category.present? %>
+          <%= link_to item.category, item.category %>
+        <% end %>
+      </dd>
       <!-- Display category_id end -->
 
       <dt>Price</dt>
       <!-- Display price_id start -->
-      <dd><%= item.price_id %></dd>
+      <dd>
+        <% if @item.price.present? %>
+          <%= link_to item.price, item.price %>
+        <% end %>
+      </dd>
       <!-- Display price_id end -->
 
       <dt>Description</dt>
@@ -22,7 +30,11 @@
 
       <dt>User</dt>
       <!-- Display user_id start -->
-      <dd><%= item.user_id %></dd>
+      <dd>
+        <% if @item.user.present? %>
+          <%= link_to item.user, item.user %>
+        <% end %>
+      </dd>
       <!-- Display user_id end -->
 
       <dt>Location</dt>

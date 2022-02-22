@@ -7,17 +7,29 @@
     <dl class="mb-1">
       <dt>Item</dt>
       <!-- Display item_id start -->
-      <dd><%= search.item_id %></dd>
+      <dd>
+        <% if @search.item.present? %>
+          <%= link_to search.item, search.item %>
+        <% end %>
+      </dd>
       <!-- Display item_id end -->
 
       <dt>Price</dt>
       <!-- Display price_id start -->
-      <dd><%= search.price_id %></dd>
+      <dd>
+        <% if @search.price.present? %>
+          <%= link_to search.price, search.price %>
+        <% end %>
+      </dd>
       <!-- Display price_id end -->
 
       <dt>Category</dt>
       <!-- Display category_id start -->
-      <dd><%= search.category_id %></dd>
+      <dd>
+        <% if @search.category.present? %>
+          <%= link_to search.category, search.category %>
+        <% end %>
+      </dd>
       <!-- Display category_id end -->
 
     </dl>
