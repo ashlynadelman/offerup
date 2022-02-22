@@ -10,6 +10,10 @@ class Price < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :categories,
+             :through => :item_titles,
+             :source => :category
+
   has_many   :users,
              :through => :item_titles,
              :source => :user

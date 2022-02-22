@@ -12,6 +12,8 @@ RSpec.describe Price, type: :model do
 
     describe "InDirect Associations" do
 
+    it { should have_many(:categories) }
+
     it { should have_many(:users) }
 
     end
