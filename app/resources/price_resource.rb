@@ -5,6 +5,8 @@ class PriceResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :searches
+
   has_many   :item_titles,
              resource: ItemResource
 

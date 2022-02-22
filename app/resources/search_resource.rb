@@ -8,6 +8,8 @@ class SearchResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :price
+
   belongs_to :item
 
   # Indirect associations
